@@ -9,8 +9,6 @@ import org.testng.annotations.Test;
 
 import com.qa.opencart.base.BaseTest;
 import com.qa.opencart.constants.AppConstants;
-import com.qa.opencart.pages.AccountsPage;
-import com.qa.opencart.pages.SearchPage;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -25,7 +23,6 @@ public class AccountsPageTest extends BaseTest {
 	
 	@BeforeClass
 	public void accountsPageSetUp() {
-		//accountsPage = loginPage.doLogin("qatestertest@gmail.com", "Test@123");
 		accountsPage = loginPage.doLogin(prop.getProperty("username").trim(), prop.getProperty("password").trim());
 	}
 	

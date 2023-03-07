@@ -10,9 +10,6 @@ import org.openqa.selenium.WebElement;
 import com.qa.opencart.constants.AppConstants;
 import com.qa.opencart.utils.ElementUtil;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Step;
 
 public class LoginPage {
@@ -42,7 +39,6 @@ public class LoginPage {
 	//3. Page Actions/Method
 	@Step("***** Getting login page title *****")
 	public String getLoginPageTitle() {
-//		String title = driver.getTitle();
 		String title = eleUtil.waitForTitleContainsAndFetch(AppConstants.DEFAULT_SHORT_TIME_OUT, AppConstants.LOGIN_PAGE_TITLE_VALUE);
 		System.out.println("Page Title: "+title);
 		return title;
@@ -51,7 +47,6 @@ public class LoginPage {
 	
 	@Step("***** Getting login page URL *****")
 	public String getLoginPageUrl() {
-//		String url = driver.getCurrentUrl();
 		String url = eleUtil.waitForUrlContainsAndFetch(AppConstants.DEFAULT_SHORT_TIME_OUT, AppConstants.LOGIN_PAGE_URL_FRACTION_VALUE);
 		System.out.println("Page Url: "+url);
 		return url;
@@ -60,16 +55,12 @@ public class LoginPage {
 	
 	@Step("***** Checking forgot password link *****")
 	public boolean isForgotPasswordLinkExists() {
-//		return driver.findElement(forgotPassword).isDisplayed();
 		return eleUtil.waitForElementVisibility(forgotPassword, AppConstants.DEFAULT_MEDIUM_TIME_OUT).isDisplayed();
 	}
 	
 	
 	@Step("***** Login with username: {0} and password: {1} *****")
 	public AccountsPage doLogin(String un, String pwd) {
-//		driver.findElement(emailId).sendKeys(un);
-//		driver.findElement(password).sendKeys(pwd);
-//		driver.findElement(loginButton).click();
 		System.out.println("Application Credentials are: "+un+" and "+pwd);
 		eleUtil.waitForElementVisibility(emailId, AppConstants.DEFAULT_MEDIUM_TIME_OUT).sendKeys(un);
 		eleUtil.doSendKeys(password, pwd);
@@ -86,28 +77,23 @@ public class LoginPage {
 	
 	@Step("***** Check for the display of NAL logo *****")
 	public boolean isNalLogoDisplayed() {
-//		boolean blnResult = driver.findElement(nalLogo).isDisplayed();
-//		return blnResult;
 		return eleUtil.waitForElementVisibility(nalLogo, AppConstants.DEFAULT_MEDIUM_TIME_OUT).isDisplayed();
 	}
 	
 	
 	@Step("***** Check for the NAL logo source *****")
 	public String getLogoSource() {
-//		return driver.findElement(nalLogo).getAttribute("src").toString();
 		return eleUtil.waitForElementVisibility(nalLogo, AppConstants.DEFAULT_MEDIUM_TIME_OUT).getAttribute("src").toString();
 	}
 	
 	
 	@Step("***** Get NAL logo title *****")
 	public String getLogoTitle() {
-//		return driver.findElement(nalLogo).getAttribute("title").toString();
 		return eleUtil.waitForElementVisibility(nalLogo, AppConstants.DEFAULT_MEDIUM_TIME_OUT).getAttribute("title").toString();
 	}
 	
 	@Step("***** Get the menu options link text *****")
 	public List<String> getMenuOptionLinksText() {
-//		List<WebElement> menuOptionsLinksList = driver.findElements(menuOptionLinks);
 		List<WebElement> menuOptionsLinksList = eleUtil.waitForElementsVisibility(menuOptionLinks, AppConstants.DEFAULT_MEDIUM_TIME_OUT);
 		List<String> menuOptionsLinksTextList = new ArrayList<>();
 		for(WebElement ele: menuOptionsLinksList) {
@@ -121,7 +107,6 @@ public class LoginPage {
 	
 	@Step("***** Get the footer section headers text *****")
 	public List<String> getFooterSectionHeadersText() {
-//		List<WebElement> footerSectionHeaderList = driver.findElements(footerSectionHeader);
 		List<WebElement> footerSectionHeaderList = eleUtil.waitForElementsVisibility(footerSectionHeader, AppConstants.DEFAULT_MEDIUM_TIME_OUT);
 		List<String> footerSectionHeaderTextList = new ArrayList<>();
 		for(WebElement ele: footerSectionHeaderList) {
@@ -138,7 +123,6 @@ public class LoginPage {
 	public List<String> getFooterSectionChildLinksText(String headerName) {
 		String footerSectionChildLinkXpath = footerSectionChildLinkPartialXpath1 + headerName + footerSectionChildLinkPartialXpath2;
 		By footerSectionChildLink = By.xpath(footerSectionChildLinkXpath);
-//		List<WebElement> footerSectionChildLinksList = driver.findElements(footerSectionChildLink);
 		List<WebElement> footerSectionChildLinksList = eleUtil.waitForElementsVisibility(footerSectionChildLink, AppConstants.DEFAULT_MEDIUM_TIME_OUT);
 		List<String> footerSectionChildLinksTextList = new ArrayList<>();
 		for(WebElement ele: footerSectionChildLinksList) {

@@ -33,7 +33,6 @@ public class AccountsPage {
 	//3. Page Actions/methods
 	@Step("***** Get the accounts page title *****")
 	public String getAccountsPageTitle() {
-//		String title = driver.getTitle();
 		String title = eleUtil.waitForTitleContainsAndFetch(AppConstants.DEFAULT_SHORT_TIME_OUT, AppConstants.ACCOUNTS_PAGE_TITLE_VALUE);
 		System.out.println("AccountsPageTitle: "+title);
 		return title;
@@ -42,7 +41,6 @@ public class AccountsPage {
 	
 	@Step("***** Get the accounts page Url *****")
 	public String getAccountsPageUrl() {
-//		String url = driver.getCurrentUrl();
 		String url = eleUtil.waitForUrlContainsAndFetch(AppConstants.DEFAULT_SHORT_TIME_OUT, AppConstants.ACCOUNTS_PAGE_URL_FRACTION_VALUE);
 		System.out.println("AccountsPageUrl: "+url);
 		return url;
@@ -51,14 +49,12 @@ public class AccountsPage {
 	
 	@Step("***** Check for existance of the logout link *****")
 	public boolean isLogoutExists() {
-//		return driver.findElement(logoutLink).isDisplayed();
 		return eleUtil.waitForElementVisibility(logoutLink, AppConstants.DEFAULT_MEDIUM_TIME_OUT).isDisplayed();
 	}
 	
 	
 	@Step("***** Check for existance of the search field *****")
 	public boolean isSearchExists() {
-//		return driver.findElement(search).isDisplayed();
 		return eleUtil.waitForElementVisibility(search, AppConstants.DEFAULT_MEDIUM_TIME_OUT).isDisplayed();
 	}
 	
@@ -66,7 +62,6 @@ public class AccountsPage {
 	@Step("***** Get the accounts page header links text *****")
 	public List<String> getAccountsPageHeadersList() {
 		List<WebElement> accountsPageHeadersList = eleUtil.waitForElementsVisibility(accountsHeader, AppConstants.DEFAULT_MEDIUM_TIME_OUT);
-//		List<WebElement> accountsPageHeadersList = driver.findElements(accountsHeader);
 		List<String> accountsPageHeaderTextList = new ArrayList<>();
 		for(WebElement ele: accountsPageHeadersList) {
 			String textValue = ele.getText();

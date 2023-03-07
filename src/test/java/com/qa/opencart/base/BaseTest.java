@@ -31,7 +31,6 @@ public class BaseTest {
 	protected RegisterPage registerPage; 
 	protected SoftAssert softAssert;
 	
-	//@Parameters({"url", "browser"})
 	@BeforeTest
 	public void setUp() {
 		df = new DriverFactory();

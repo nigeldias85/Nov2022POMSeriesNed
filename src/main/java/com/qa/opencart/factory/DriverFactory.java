@@ -13,7 +13,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.io.FileHandler;
 
 import com.qa.opencart.exception.FrameworkException;
 
@@ -61,7 +60,6 @@ public class DriverFactory {
 		//Modify the browser
 		getDriver().manage().deleteAllCookies();
 		getDriver().manage().window().maximize();
-		//driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
 		getDriver().get(prop.getProperty("url"));
 		return getDriver();
 	}
@@ -125,19 +123,8 @@ public class DriverFactory {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-//		try {
-//			FileInputStream fip = new FileInputStream("./src/test/resources/config/config.properties");
-//			prop.load(fip);
-//			
-//		} catch (FileNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		
+	
+		//Load the fileinputstream into the properties reference - prop
 		try {
 			prop.load(fip);
 		} catch (IOException e) {
@@ -148,34 +135,16 @@ public class DriverFactory {
 	}
 	
 	
-	/**
-	 * Take the screenshot
-	 */
-//	public static String getScreenshot() {
-//		File screenshotFile = ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
-//		//System.getProperty("user.dir"); //Get the current project directory
-//		String path = System.getProperty("user.dir") + "/screenshot/" + System.currentTimeMillis() + ".png";
-//		System.out.println("Path for the screenshot is: "+path);
-//		File destination = new File(path);
-//		try {
-//			FileHandler.copy(screenshotFile, destination);
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return path;
-//	}
-	
 	
 	/**
-
-	 * take screenshot
-
+	 * Takes the screenshot
+	 * 
+	 * @return
 	 */
-
 	public static String getScreenshot() {
 
 		File srcFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+		//System.getProperty("user.dir") -> This returns the current project directory
 		String path = System.getProperty("user.dir") + "/screenshot/" + System.currentTimeMillis() + ".png";
 		File destination = new File(path);
 		try {
@@ -184,7 +153,6 @@ public class DriverFactory {
 			e.printStackTrace();
 		}
 		return path;
-
 	}
 
 }
