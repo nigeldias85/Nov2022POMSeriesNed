@@ -31,10 +31,19 @@ public class BaseTest {
 	protected RegisterPage registerPage; 
 	protected SoftAssert softAssert;
 	
+	@Parameters({"browser", "browserversion", "testcasename"})
 	@BeforeTest
-	public void setUp() {
+	public void setUp(String browserName, String browserVersion, String testCaseName) {
 		df = new DriverFactory();
 		prop = df.initProp();
+		
+		//Check for the browser value sent from testng.xml
+		if(browserName != null) {
+			prop.setProperty("browser", browserName);
+			prop.setProperty("browserversion", browserVersion);
+			prop.setProperty("testcasename", testCaseName);
+		}
+		
 		driver = df.initDriver(prop);
 		loginPage = new LoginPage(driver);
 		softAssert = new SoftAssert();
