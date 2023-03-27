@@ -38,7 +38,7 @@ public class BaseTest {
 		prop = df.initProp();
 		
 		//Check for the browser value sent from testng.xml
-		//Assign values to attributes in propoerty files based on input passed from testng.xml
+		//Assign values to attributes in property files based on input passed from testng.xml
 		if(browserName != null) {
 			prop.setProperty("browser", browserName);
 			prop.setProperty("browserversion", browserVersion);

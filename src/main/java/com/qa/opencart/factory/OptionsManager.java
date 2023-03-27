@@ -19,7 +19,7 @@ public class OptionsManager {
 
 	public ChromeOptions getChromeOptions() {
 		co = new ChromeOptions();
-		co.addArguments("--remote-allow-origins=*");
+		//co.addArguments("--remote-allow-origins=*");
 
 		//If the testcase in run on 'remote' machine, then set the following properties
 		if (Boolean.parseBoolean(prop.getProperty("remote"))) {
